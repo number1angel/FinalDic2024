@@ -10,6 +10,15 @@ public class DataStructures {
 //    Ejercicio 5:
     public static Map<String, Integer> contarPalabras(List<String> words) {
         Map<String, Integer> contadorDePalabras = new HashMap<>();
+        for(String w1 : words) {
+            Integer cant = 0;
+            for(String w2 : words) {
+                if(w1 == w2) {
+                    cant ++;
+                }
+            }
+            contadorDePalabras.put(w1, cant);
+        }
         return contadorDePalabras;
     }
 
@@ -25,7 +34,8 @@ public class DataStructures {
 
     //    Ejercicio 6:
     public static Set<Integer> unionSets(Set<Integer> set1, Set<Integer> set2) {
-        Set<Integer> union = new HashSet<>();
+        Set<Integer> union = new HashSet<>(set1);
+        union.addAll(set2);
         return union;
     }
 
